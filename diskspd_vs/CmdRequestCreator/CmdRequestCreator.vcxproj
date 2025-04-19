@@ -141,19 +141,19 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(SolutionDir)\..\Common;$(IncludePath)</IncludePath>
-    <TargetName>diskspd</TargetName>
+    <TargetName>DiskSpd32</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)\..\Common;$(IncludePath)</IncludePath>
-    <TargetName>diskspd</TargetName>
+    <TargetName>DiskSpd64</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <IncludePath>$(SolutionDir)\..\Common;$(IncludePath)</IncludePath>
-    <TargetName>diskspd</TargetName>
+    <TargetName>DiskSpdA64</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <IncludePath>$(SolutionDir)\..\Common;$(IncludePath)</IncludePath>
-    <TargetName>diskspd</TargetName>
+    <TargetName>DiskSpdA32</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

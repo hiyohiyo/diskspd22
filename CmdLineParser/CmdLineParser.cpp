@@ -1098,6 +1098,11 @@ bool CmdLineParser::_ReadParametersFromCmdLine(const int argc, const char *argv[
             // handled during composable parameter evaluation
             break;
 
+        case 'A':    /// CrystalDiskMark Process ID
+            extern DWORD pid;
+            pid = (DWORD)strtoul(arg + 1, NULL, 10);
+            break;
+
         case 'a': // affinity
             //-a1,2,3,4 (assign threads to cpus 1,2,3,4 (round robin))
             if (!_ParseAffinity(arg, &timeSpan))

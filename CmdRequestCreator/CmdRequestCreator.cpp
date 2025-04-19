@@ -204,8 +204,24 @@ int __cdecl main(int argc, const char* argv[])
     }
 
     /// for CrystalDiskMark
-    // printf("Score: %d", totalScore);
-    fprintf(stderr, "%f", averageLatency);
+    CHAR name[32];
+    snprintf(name, 32, "CrystalDiskMark%08X", pid);
+    auto size = 8;
+
+    HANDLE hSharedMemory = CreateFileMapping(INVALID_HANDLE_VALUE, NULL, PAGE_READWRITE, NULL, size, name);
+    if (hSharedMemory != NULL)
+    {
+        auto pMemory = (double*)MapViewOfFile(hSharedMemory, FILE_MAP_ALL_ACCESS, NULL, NULL, size);
+        if (pMemory != NULL)
+        {
+            *pMemory = averageLatency;
+            UnmapViewOfFile(pMemory);
+            CloseHandle(hSharedMemory);
+        }
+    }
     return totalScore;
-//    return 0;
+
+    // printf("Score: %d", totalScore);
+    // fprintf(stderr, "%f", averageLatency);
+    // return 0;
 }
