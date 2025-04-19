@@ -94,6 +94,7 @@ int __cdecl main(int argc, const char* argv[])
 {
     /// for CrystalDiskMark
     int totalScore = 0;
+    double averageLatency = 0.0;
 
     //
     // parse cmd line parameters
@@ -168,7 +169,7 @@ int __cdecl main(int argc, const char* argv[])
 
     IORequestGenerator ioGenerator;
     /// for CrystalDiskMark
-    if (!ioGenerator.GenerateRequests(profile, *pResultParser, &synch, &totalScore))
+    if (!ioGenerator.GenerateRequests(profile, *pResultParser, &synch, &totalScore, &averageLatency))
     // if (!ioGenerator.GenerateRequests(profile, *pResultParser, &synch))
     {
         if (profile.GetResultsFormat() == ResultsFormat::Xml)
@@ -200,7 +201,8 @@ int __cdecl main(int argc, const char* argv[])
     }
 
     /// for CrystalDiskMark
-    printf("Score: %d", totalScore);
+    // printf("Score: %d", totalScore);
+    fprintf(stderr, "%f", averageLatency);
     return totalScore;
 //    return 0;
 }

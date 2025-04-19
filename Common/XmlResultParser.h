@@ -37,6 +37,7 @@ public:
     string ParseProfile(const Profile& profile);
     /// for CrystalDiskMark
     int GetTotalScore();
+	double GetAverageLatency();
 
 private:
     void _PrintCpuUtilization(const Results& results, const SystemInformation& system);

@@ -35,8 +35,6 @@ class XmlProfileParser
 {
 public:
     bool ParseFile(const char *pszPath, Profile *pProfile, vector<Target> *pvSubstTargets, HMODULE hModule);
-    /// for CrystalDiskMark
-    int GetTotalScore();
 
 private:
     HRESULT _ParseEtw(IXMLDOMDocument2 *pXmlDoc, Profile *pProfile);

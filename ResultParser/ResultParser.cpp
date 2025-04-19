@@ -54,6 +54,11 @@ int ResultParser::GetTotalScore()
     return _totalScore;
 }
 
+double ResultParser::GetAverageLatency()
+{
+    return 0.0;
+}
+
 void ResultParser::_Print(const char *format, ...)
 {
     assert(nullptr != format);
@@ -966,9 +971,11 @@ void ResultParser::_PrintSection(_SectionEnum section, const TimeSpan& timeSpan,
                 _totalScore = (int)(ullTotalBytesCount / 1000 / fTime);
             }
 
+            /// CrystalDiskMark
             if (timeSpan.GetMeasureLatency())
             {
                 _Print(" | %8.3f", latencyHistogram.GetAvg()/1000);
+                _averageLatency = latencyHistogram.GetAvg();
             }
 
             if (timeSpan.GetCalculateIopsStdDev())

@@ -2121,9 +2121,8 @@ bool IORequestGenerator::_PrecreateFiles(Profile& profile) const
 }
 
 // bool IORequestGenerator::GenerateRequests(Profile& profile, IResultParser& resultParser, struct Synchronization *pSynch)
-
 /// for CrystalDiskMark
-bool IORequestGenerator::GenerateRequests(Profile& profile, IResultParser& resultParser, struct Synchronization *pSynch, int* totalScore)
+bool IORequestGenerator::GenerateRequests(Profile& profile, IResultParser& resultParser, struct Synchronization *pSynch, int* totalScore, double* averageLatency)
 {
     bool fOk = _PrecreateFiles(profile);
     if (fOk)
@@ -2145,6 +2144,7 @@ bool IORequestGenerator::GenerateRequests(Profile& profile, IResultParser& resul
 
         /// for CrystalDiskMark
         *totalScore = resultParser.GetTotalScore() * 10;
+        *averageLatency = resultParser.GetAverageLatency();
     }
 
     return fOk;

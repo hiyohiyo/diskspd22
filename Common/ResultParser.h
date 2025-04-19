@@ -43,6 +43,7 @@ public:
 
     /// for CrystalDiskMark
     int GetTotalScore();
+    double GetAverageLatency();
 
 private:
     void _DisplayFileSize(UINT64 fsize, UINT32 align = 0);
@@ -69,6 +70,7 @@ private:
     string _sResult;
     /// for CrystalDiskMark
     int _totalScore;
+    double _averageLatency;
 
     friend class UnitTests::ResultParserUnitTests;
 };

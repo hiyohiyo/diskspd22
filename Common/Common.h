@@ -2682,6 +2682,7 @@ public:
     virtual string ParseProfile(const Profile& profile) = 0;
     /// for CrystalDiskMark
     virtual int GetTotalScore() = 0;
+    virtual double GetAverageLatency() = 0;
 };
 
 class EtwResultParser

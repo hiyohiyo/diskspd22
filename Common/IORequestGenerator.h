@@ -50,7 +50,7 @@ public:
 
     //bool GenerateRequests(Profile& profile, IResultParser& resultParser, struct Synchronization *pSynch);
     /// for CrystalDiskMark
-    bool GenerateRequests(Profile& profile, IResultParser& resultParser, struct Synchronization* pSynch, int* totalScore);
+    bool GenerateRequests(Profile& profile, IResultParser& resultParser, struct Synchronization* pSynch, int* totalScore, double* averageLatency);
 
 private:
 

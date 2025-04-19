@@ -38,6 +38,11 @@ int XmlResultParser::GetTotalScore()
     return 0;
 }
 
+double XmlResultParser::GetAverageLatency()
+{
+    return 0.0;
+}
+
 void XmlResultParser::_PrintV(const char *format, va_list listArg)
 {
     _sResult.append(_indent, ' ');
