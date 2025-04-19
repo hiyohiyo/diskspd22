@@ -2120,7 +2120,10 @@ bool IORequestGenerator::_PrecreateFiles(Profile& profile) const
     return fOk;
 }
 
-bool IORequestGenerator::GenerateRequests(Profile& profile, IResultParser& resultParser, struct Synchronization *pSynch)
+// bool IORequestGenerator::GenerateRequests(Profile& profile, IResultParser& resultParser, struct Synchronization *pSynch)
+
+/// for CrystalDiskMark
+bool IORequestGenerator::GenerateRequests(Profile& profile, IResultParser& resultParser, struct Synchronization *pSynch, int* totalScore)
 {
     bool fOk = _PrecreateFiles(profile);
     if (fOk)
@@ -2139,6 +2142,9 @@ bool IORequestGenerator::GenerateRequests(Profile& profile, IResultParser& resul
         string sResults = resultParser.ParseResults(profile, system, vResults);
         printf("%s", sResults.c_str());
         fflush(stdout);
+
+        /// for CrystalDiskMark
+        *totalScore = resultParser.GetTotalScore() * 10;
     }
 
     return fOk;

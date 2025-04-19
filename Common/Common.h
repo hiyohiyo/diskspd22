@@ -2680,6 +2680,8 @@ class IResultParser
 public:
     virtual string ParseResults(const Profile& profile, const SystemInformation& system, vector<Results> vResults) = 0;
     virtual string ParseProfile(const Profile& profile) = 0;
+    /// for CrystalDiskMark
+    virtual int GetTotalScore() = 0;
 };
 
 class EtwResultParser

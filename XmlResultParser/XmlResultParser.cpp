@@ -32,6 +32,12 @@ SOFTWARE.
 // TODO: refactor to a single function shared with the ResultParser
 char printBuffer[4096] = {};
 
+/// for CrystalDiskMark
+int XmlResultParser::GetTotalScore()
+{
+    return 0;
+}
+
 void XmlResultParser::_PrintV(const char *format, va_list listArg)
 {
     _sResult.append(_indent, ' ');

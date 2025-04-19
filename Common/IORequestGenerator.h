@@ -48,7 +48,9 @@ public:
 
     }
 
-    bool GenerateRequests(Profile& profile, IResultParser& resultParser, struct Synchronization *pSynch);
+    //bool GenerateRequests(Profile& profile, IResultParser& resultParser, struct Synchronization *pSynch);
+    /// for CrystalDiskMark
+    bool GenerateRequests(Profile& profile, IResultParser& resultParser, struct Synchronization* pSynch, int* totalScore);
 
 private:
 

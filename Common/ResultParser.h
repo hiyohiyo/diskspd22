@@ -41,6 +41,9 @@ public:
     string ParseResults(const Profile& profile, const SystemInformation& system, vector<Results> vResults);
     string ParseProfile(const Profile& profile);
 
+    /// for CrystalDiskMark
+    int GetTotalScore();
+
 private:
     void _DisplayFileSize(UINT64 fsize, UINT32 align = 0);
     void _DisplayETWSessionInfo(struct ETWSessionInfo sessionInfo);
@@ -64,6 +67,8 @@ private:
     void _PrintWaitStats(const Results& result);
 
     string _sResult;
+    /// for CrystalDiskMark
+    int _totalScore;
 
     friend class UnitTests::ResultParserUnitTests;
 };

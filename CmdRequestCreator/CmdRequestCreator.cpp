@@ -92,6 +92,9 @@ void TestFinished()
 /*****************************************************************************/
 int __cdecl main(int argc, const char* argv[])
 {
+    /// for CrystalDiskMark
+    int totalScore = 0;
+
     //
     // parse cmd line parameters
     //
@@ -164,7 +167,9 @@ int __cdecl main(int argc, const char* argv[])
     //
 
     IORequestGenerator ioGenerator;
-    if (!ioGenerator.GenerateRequests(profile, *pResultParser, &synch))
+    /// for CrystalDiskMark
+    if (!ioGenerator.GenerateRequests(profile, *pResultParser, &synch, &totalScore))
+    // if (!ioGenerator.GenerateRequests(profile, *pResultParser, &synch))
     {
         if (profile.GetResultsFormat() == ResultsFormat::Xml)
         {
@@ -194,5 +199,8 @@ int __cdecl main(int argc, const char* argv[])
         CloseHandle(g_hEventFinished);
     }
 
-    return 0;
+    /// for CrystalDiskMark
+    printf("Score: %d", totalScore);
+    return totalScore;
+//    return 0;
 }

@@ -48,6 +48,12 @@ SOFTWARE.
 
 static char printBuffer[4096] = {};
 
+/// for CrystalDiskMark
+int ResultParser::GetTotalScore()
+{
+    return _totalScore;
+}
+
 void ResultParser::_Print(const char *format, ...)
 {
     assert(nullptr != format);
@@ -953,6 +959,12 @@ void ResultParser::_PrintSection(_SectionEnum section, const TimeSpan& timeSpan,
                    ullIOCount,
                    (double)ullBytesCount / 1024 / 1024 / fTime,
                    (double)ullIOCount / fTime);
+
+            /// CrystalDiskMark
+            if (section == _SectionEnum::TOTAL)
+            {
+                _totalScore = (int)(ullTotalBytesCount / 1000 / fTime);
+            }
 
             if (timeSpan.GetMeasureLatency())
             {
