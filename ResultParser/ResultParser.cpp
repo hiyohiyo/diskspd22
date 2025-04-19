@@ -975,7 +975,10 @@ void ResultParser::_PrintSection(_SectionEnum section, const TimeSpan& timeSpan,
             if (timeSpan.GetMeasureLatency())
             {
                 _Print(" | %8.3f", latencyHistogram.GetAvg()/1000);
-                _averageLatency = latencyHistogram.GetAvg();
+                if (section == _SectionEnum::TOTAL)
+                {
+                    _averageLatency = latencyHistogram.GetAvg();
+                }
             }
 
             if (timeSpan.GetCalculateIopsStdDev())

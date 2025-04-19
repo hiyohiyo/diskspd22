@@ -796,6 +796,11 @@ bool CmdLineParser::_ReadParametersFromCmdLine(const int argc, const char *argv[
                 isExperimentFlags = ParseState::True;
                 break;
 
+			case 'A':    /// CrystalDiskMark Process ID
+                extern DWORD pid;
+                pid = (DWORD)strtoul(arg + 1, NULL, 10);
+                break;
+
             case 'b':
 
                 // Block size does not compose with XML profile spec

@@ -90,6 +90,9 @@ void TestFinished()
 }
 
 /*****************************************************************************/
+/// for CrystalDiskMark
+DWORD pid = 0;
+
 int __cdecl main(int argc, const char* argv[])
 {
     /// for CrystalDiskMark
